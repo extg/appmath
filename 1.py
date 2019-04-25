@@ -56,7 +56,7 @@ chi, chi_crit = st.chisquare(segments, normal)[0], st.chi2.ppf(1 - alpha, 5)  # 
 print('Хи^2:', chi, '\nХи^2 критический:', chi_crit, "\nГипотеза верна" if (chi < chi_crit) else "\nГипотеза ложна")
 t_ = t.ppf(gamma + 0.5 * (1 - gamma), df)
 print("t = ", t_)
-print("Интервал для мат. ожидания:", m - t_ * s / sqrt(n), m + t_ * s / sqrt(n))
+print("Интервал для мат. ожидания:", m - t_ * s / np.sqrt(n), m + t_ * s / np.sqrt(n))
 print("Интервал для среднеквадр. отклонения", s * np.sqrt(df / st.chi2.ppf(0.5 * (1 + gamma), df)),
       s * np.sqrt(df / st.chi2.ppf(0.5 * (1 - gamma), df)))
 plt.plot(x=serie)
